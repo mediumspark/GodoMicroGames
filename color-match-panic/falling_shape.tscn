@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl8xcublcgwib"]
+
+[ext_resource type="Script" uid="uid://cusysuuqd1r1g" path="res://FallingShape.gd" id="1_n4w7h"]
+[ext_resource type="Texture2D" uid="uid://cfv0raur57ldh" path="res://ChatGPT Image Jul 10, 2025, 04_45_35 PM.png" id="2_yhs1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhl3q"]
+atlas = ExtResource("2_yhs1p")
+region = Rect2(163.186, 166.749, 204.906, 220.468)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m63b5"]
+
+[node name="FallingShape" type="Area2D"]
+script = ExtResource("1_n4w7h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_lhl3q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m63b5")

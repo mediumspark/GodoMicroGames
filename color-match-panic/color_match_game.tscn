@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://de5sa26vcxojk"]
+
+[ext_resource type="Script" uid="uid://bupbykn0gxp0o" path="res://GameManager.gd" id="1_d41mp"]
+[ext_resource type="Texture2D" uid="uid://cfv0raur57ldh" path="res://ChatGPT Image Jul 10, 2025, 04_45_35 PM.png" id="1_m63b5"]
+[ext_resource type="PackedScene" uid="uid://dl8xcublcgwib" path="res://falling_shape.tscn" id="2_m63b5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5wqk"]
+atlas = ExtResource("1_m63b5")
+region = Rect2(146.41, 463.549, 240.082, 250.8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jf1oj"]
+atlas = ExtResource("1_m63b5")
+region = Rect2(474.328, 465.913, 248.656, 248.656)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbgta"]
+atlas = ExtResource("1_m63b5")
+region = Rect2(783.005, 468.057, 252.944, 248.656)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxe20"]
+atlas = ExtResource("1_m63b5")
+region = Rect2(1108.83, 465.913, 242.226, 246.513)
+
+[node name="ColorMatchGame" type="Node2D"]
+script = ExtResource("1_d41mp")
+shape_scene = ExtResource("2_m63b5")
+
+[node name="Background" type="Sprite2D" parent="."]
+
+[node name="ShapeSpawner" type="Node2D" parent="."]
+position = Vector2(562, 0)
+
+[node name="ButtonPanel" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1153.0
+offset_bottom = 652.0
+
+[node name="RedButton" type="TextureButton" parent="ButtonPanel"]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 450.0
+offset_right = 830.0
+offset_bottom = 700.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_j5wqk")
+
+[node name="BlueButton" type="TextureButton" parent="ButtonPanel"]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 450.0
+offset_right = 1038.0
+offset_bottom = 698.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_jf1oj")
+
+[node name="GreenButton" type="TextureButton" parent="ButtonPanel"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 450.0
+offset_right = 442.0
+offset_bottom = 698.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_sbgta")
+
+[node name="YellowButton" type="TextureButton" parent="ButtonPanel"]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 450.0
+offset_right = 632.0
+offset_bottom = 696.0
+scale = Vector2(0.5, 0.5)
+texture_normal = SubResource("AtlasTexture_xxe20")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 451.0
+offset_top = 596.0
+offset_right = 654.0
+offset_bottom = 644.0
+
+[node name="MissLabel" type="Label" parent="."]
+offset_left = 754.0
+offset_top = 606.0
+offset_right = 850.0
+offset_bottom = 648.0
+
+[node name="GameOverLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pressed" from="ButtonPanel/RedButton" to="." method="_on_red_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/BlueButton" to="." method="_on_blue_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/GreenButton" to="." method="_on_green_button_pressed"]
+[connection signal="pressed" from="ButtonPanel/YellowButton" to="." method="_on_yellow_button_pressed"]
