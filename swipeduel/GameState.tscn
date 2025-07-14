@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://chkqmker54fu1"]
+
+[ext_resource type="Script" uid="uid://sep3uyqx3oao" path="res://DuelManager.gd" id="1_xw8og"]
+[ext_resource type="Texture2D" uid="uid://6f4nr5gav1ad" path="res://kenney_platformer-art-deluxe/Base pack/HUD/hud_heartFull.png" id="2_krv0r"]
+[ext_resource type="Texture2D" uid="uid://yfm7m3nnrd8q" path="res://kenney_platformer-art-deluxe/Base pack/HUD/hud_heartEmpty.png" id="3_8bu60"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_xw8og")
+swipe_window = 1.0
+circle_end_scale = 2.0
+
+[node name="Player1" type="AnimatedSprite2D" parent="."]
+
+[node name="Player2" type="AnimatedSprite2D" parent="."]
+
+[node name="SignalLabel" type="Label" parent="."]
+offset_right = 210.0
+offset_bottom = 65.0
+
+[node name="ResultLabel" type="Label" parent="."]
+offset_left = 1.0
+offset_top = 67.0
+offset_right = 217.0
+offset_bottom = 130.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="TimingIndicator" type="Node2D" parent="."]
+position = Vector2(574, 326)
+
+[node name="TargetCircle" type="TextureRect" parent="TimingIndicator"]
+offset_right = 53.0
+offset_bottom = 45.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(26, 22)
+texture = ExtResource("2_krv0r")
+
+[node name="ShrinkCircle" type="TextureRect" parent="TimingIndicator"]
+offset_right = 53.0
+offset_bottom = 45.0
+pivot_offset = Vector2(26, 22)
+texture = ExtResource("3_8bu60")
+expand_mode = 1
+stretch_mode = 3
