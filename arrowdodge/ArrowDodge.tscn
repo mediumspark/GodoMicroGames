@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnrrhwxjf562h"]
+
+[ext_resource type="Script" uid="uid://c2kbe5eutb2mu" path="res://character.gd" id="1_ye2yd"]
+[ext_resource type="Texture2D" uid="uid://b4uajtjjpa4jp" path="res://icon.svg" id="2_r5407"]
+[ext_resource type="Script" uid="uid://cda0ohvc5x2j2" path="res://spawner.gd" id="3_v5hpe"]
+[ext_resource type="PackedScene" uid="uid://dfg21hav6pd0p" path="res://arrow.tscn" id="4_a8e8m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5hpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8e8m"]
+size = Vector2(19.1511, 26.5217)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="Area2D" parent="."]
+position = Vector2(433, 464)
+script = ExtResource("1_ye2yd")
+
+[node name="Character" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_r5407")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_v5hpe")
+
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("3_v5hpe")
+arrow_scene = ExtResource("4_a8e8m")
+timer = 10.0
+arrowCount = 20
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(429, 559)
+scale = Vector2(59.84, 4.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(2.47326, 6.08694)
+shape = SubResource("RectangleShape2D_a8e8m")
+
+[connection signal="area_entered" from="Player" to="Player" method="_on_area_entered"]
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
